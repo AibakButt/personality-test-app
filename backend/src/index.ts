@@ -1,12 +1,16 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
+import QuestionRoutes from "../src/routes/question.route";
+
+const CORS = require("cors")
 
 const app: Application = express();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Working");
-});
+app.use(CORS())
 
-const PORT = 3000;
+app.use("/api/questions", QuestionRoutes);
+
+
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
