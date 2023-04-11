@@ -4,3 +4,8 @@ export const LABELS = {
     LANDING_PAGE_TITLE_TEXT: 'Are you an introvert or extrovert?'
 }
 
+export const URIS = {
+    LADNDING: "/",
+    TEST: "/test",
+    RESULT: "/result"
+}

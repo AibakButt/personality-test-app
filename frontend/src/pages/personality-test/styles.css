@@ -1,0 +1,23 @@
+.submit-button {
+    background-color: #e91e63;
+    border: 1px solid #e91e63;
+    border-radius: 0px;
+    height: 40px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.submit-button-disabled {
+    background-color: #ec407a;
+    border: 1px solid #ec407a;
+    border-radius: 0px;
+    height: 40px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+.submit-button:active, .submit-button:hover, .submit-button:target {
+    background-color: #d81b60 !important;
+    border: 1px solid #d81b60 !important;
+}
