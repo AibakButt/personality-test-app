@@ -1,0 +1,12 @@
+.result-card {
+    border: 1px solid #e91e63;
+    background-color: #faecf1;
+    margin: 20px auto;
+}
+
+.result-text {
+    font-size: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: #e91e63;
+}

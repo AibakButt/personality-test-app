@@ -1,30 +1,28 @@
-import React, { FC, useCallback, useMemo } from "react";
-import { ProgressBar } from "react-bootstrap";
-import { Question } from "../../store/types/personalityTest";
 import QuestionActions from "./QuestionActions";
 import QuestionInfo from "./QuestionInfo";
 import QuestionOptions from "./QuestionOptions";
 import QuestionText from "./QuestionText";
+import { FC, useMemo } from "react";
+import { ProgressBar } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { ApplicationState } from "../../store";
 import "./styles.css"
 
-interface QuesitonCardProps {
-  question: Question;
-  currentQuestion: number;
-  totalQuestions: number;
-}
+const QuestionCard: FC = () => {
 
-const QuestionCard: FC<QuesitonCardProps> = ({question, currentQuestion, totalQuestions}) => {
+  const { questions, answers } = useSelector((state: ApplicationState) => state.personality)
+  let totalQuestions = questions.length
 
   const progress = useMemo(() => {
-    return currentQuestion / totalQuestions * 100
-  }, [currentQuestion, totalQuestions])
+    return answers.length / totalQuestions * 100
+  }, [answers, totalQuestions])
 
   return (
     <div className="shadow p-4 card-box">
       <ProgressBar striped variant="success" now={progress} />
-      <QuestionInfo currentQuestion={currentQuestion} totalQuestions={totalQuestions}/>
-      <QuestionText text={question.text}/>
-      <QuestionOptions questionId={question.id}  options={question.options}/>
+      <QuestionInfo />
+      <QuestionText />
+      <QuestionOptions />
       <QuestionActions />
     </div>
   )

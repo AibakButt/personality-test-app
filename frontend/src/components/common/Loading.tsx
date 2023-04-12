@@ -1,5 +1,5 @@
-import { CSSProperties, FC } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { CSSProperties, FC } from "react";
 
 interface LoadingProps {
   loading?: boolean
@@ -10,7 +10,7 @@ const css: CSSProperties = {
   margin: "20% auto",
 };
 
-const Loading: FC<LoadingProps>= ({ loading = true }) => {
+const Loading: FC<LoadingProps>= ({ loading }) => {
   return (
     <ClipLoader
       cssOverride={css}

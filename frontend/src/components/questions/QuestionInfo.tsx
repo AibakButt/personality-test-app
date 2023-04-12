@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../store';
 
-interface QuesitonInfoProps {
-  currentQuestion: number
-  totalQuestions: number
-}
+const QuestionInfo: FC = () => {
+  const { questions, currentQuestion } = useSelector((state: ApplicationState) => state.personality)
 
-const QuestionInfo: FC<QuesitonInfoProps> = ({ currentQuestion, totalQuestions }) => {
-  return (<div className="question-info my-2">Question {currentQuestion + 1} of {totalQuestions}:</div>)
+  return (
+    <div className="question-info my-2">
+      Question {currentQuestion + 1} of {questions.length}:
+    </div>
+  )
 }
 
 export default QuestionInfo;

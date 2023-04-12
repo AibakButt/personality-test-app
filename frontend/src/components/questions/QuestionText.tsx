@@ -1,13 +1,15 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../store';
+import { Question } from '../../store/types/personalityTest';
 
-interface QuesitonTextProps {
-  text: string
-}
+const QuestionText: FC = () => {
+  const { questions, currentQuestion } = useSelector((state: ApplicationState) => state.personality)
+  let activeQuestion: Question = questions[currentQuestion]
 
-const QuestionText: FC<QuesitonTextProps> = ({text}) => {
   return (
     <div className='question-text bold'>
-      {text}
+      {activeQuestion.text}
     </div>
   )
 }

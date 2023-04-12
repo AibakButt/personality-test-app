@@ -1,5 +1,4 @@
-import React, { FC, ReactNode } from 'react';
-
+import { FC, ReactNode } from 'react';
 interface TitleProps {
   children: ReactNode;
   css?: string;

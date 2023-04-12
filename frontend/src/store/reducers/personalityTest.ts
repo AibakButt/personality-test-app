@@ -7,7 +7,7 @@ const initialState: TYPES.PersonalityTestState = {
   answers: []
 };
 
-export const personalityReducer = (state = initialState, action: any) => {
+export const personalityReducer = (state = initialState, action: TYPES.ActionType) => {
   switch (action.type) {
 
     case TYPES.SET_LOADING:
@@ -24,19 +24,22 @@ export const personalityReducer = (state = initialState, action: any) => {
 
     case TYPES.NEXT_QUESTION: 
       let _currentQuestionNext = state.currentQuestion
-      if(_currentQuestionNext < state.questions.length)
+      if(_currentQuestionNext < state.questions.length - 1)
         return {...state, currentQuestion: _currentQuestionNext + 1}
       return state;
     
     case TYPES.SET_ANSWER: 
       let _answers = structuredClone(state.answers)
-      let index = _answers.findIndex((ans: any) => ans.questionId === action.payload.questionId)
+      let index = _answers.findIndex((answer: TYPES.Answer) => answer.questionId === action.payload.questionId)
       if(index > -1) {
         _answers[index] = action.payload
       } else {
         _answers.push(action.payload)
       }
-      return { ...state, answers: _answers}
+      return { ...state, answers: _answers }
+    
+    case TYPES.SUBMIT_TEST:
+      return { ...state, answers: [], currentQuestion: 0}
     
     default:
       return state;

@@ -4,16 +4,19 @@
     "text": "It’s time for your annual appraisal with your boss. You:",
     "options": [
       {
+        "value": "A",
         "content": "Go with great hesitation as these sessions are torture for you",
         "introvertPoint": 2,
         "extrovertPoint": 0
       },
       {
+        "value": "B",
         "content": "Look forward to hearing what your boss thinks about you and expects from you",
         "introvertPoint": 2,
         "extrovertPoint": 1
       },
       {
+        "value": "",
         "content": "Rehearse ad nauseam the arguments and ideas that you’ve prepared for the meeting",
         "introvertPoint": 2,
         "extrovertPoint": 2
