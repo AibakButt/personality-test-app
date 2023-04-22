@@ -13,8 +13,8 @@ export const setAnswer = (answer: TYPES.Answer) => ({
   payload: answer
 })
 
-export const submitTest = () => ({
-  type: TYPES.SUBMIT_TEST,
+export const resetTest = () => ({
+  type: TYPES.RESET_TEST,
 })
 
 export const apiFetchQuestions = (questions: TYPES.Question[]) => ({

@@ -1,16 +1,18 @@
 import Title from '../../components/common/Title';
 import Button from '../../components/common/Button';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ApplicationState } from '../../store';
 import { Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { URIS } from '../../utils/constants';
-import './styles.css';
 import { Question } from '../../store/types/personalityTest';
+import { resetTest } from '../../store/actions/personalityTest'
+import './styles.css';
 
 const Result = () => {
   const { questions, answers } = useSelector((state: ApplicationState) => state.personality )
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   function calculatePersonality() {
     let introvert = 0;
@@ -29,6 +31,11 @@ const Result = () => {
     return introvert > extrovert ? "Introvert" : "Extrovert";
   }
 
+  const handleRetakeTest = () => {
+    dispatch(resetTest())
+    navigate(URIS.LADNDING)
+  }
+
   return (
     <Container>
         <div className="result-card d-flex flex-column align-items-center shadow ">
@@ -36,7 +43,7 @@ const Result = () => {
           <div className="result-text">You are {calculatePersonality()}</div>
         </div>
         <div className="d-grid gap-2">
-          <Button className="button" onClick={() => navigate(URIS.LADNDING)}>Retake Test</Button>
+          <Button className="button" onClick={handleRetakeTest}>Retake Test</Button>
         </div>
     </Container>
   )

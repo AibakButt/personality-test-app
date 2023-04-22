@@ -5,8 +5,9 @@
 }
 
 .result-text {
-    font-size: 5rem;
+    font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-style: italic;
+    text-align: center;
     color: #e91e63;
 }

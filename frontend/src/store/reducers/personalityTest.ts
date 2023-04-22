@@ -29,7 +29,7 @@ export const personalityReducer = (state = initialState, action: TYPES.ActionTyp
       return state;
     
     case TYPES.SET_ANSWER: 
-      let _answers = structuredClone(state.answers)
+      let _answers = JSON.parse(JSON.stringify(state.answers))
       let index = _answers.findIndex((answer: TYPES.Answer) => answer.questionId === action.payload.questionId)
       if(index > -1) {
         _answers[index] = action.payload
@@ -38,7 +38,7 @@ export const personalityReducer = (state = initialState, action: TYPES.ActionTyp
       }
       return { ...state, answers: _answers }
     
-    case TYPES.SUBMIT_TEST:
+    case TYPES.RESET_TEST:
       return { ...state, answers: [], currentQuestion: 0}
     
     default:

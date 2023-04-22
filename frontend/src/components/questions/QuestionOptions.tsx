@@ -12,7 +12,7 @@ const QuestionOptions: FC = () => {
 
   let question = questions[currentQuestion]
 
-  const handleAnswerUpdate = (questionId: string, selectedOption: string) => {
+  const handleAnswerUpdate = (questionId: number, selectedOption: string) => {
     let payload = { questionId, selectedOption }
     dispatch(setAnswer(payload))
   }
@@ -21,17 +21,16 @@ const QuestionOptions: FC = () => {
     let index = answers.findIndex(answer => answer.questionId === questions[currentQuestion].id)
     return answers[index]?.selectedOption === option.value
   }
-
-  return (
+    return (
     <div>
       {
         question.options.map((option: QuestionOption) => (
-          <div key={option.content} onClick={() => handleAnswerUpdate(question.id, option.value)}>
+          <div key={option?.content} onClick={() => handleAnswerUpdate(question.id, option.value)}>
             <Form.Check
               checked={isSelected(option, currentQuestion)}
               className="my-2"
               type={'radio'}
-              label={option.content}
+              label={option?.content}
               name="option-group"
               onChange={() => handleAnswerUpdate(question.id, option.value)}
             />

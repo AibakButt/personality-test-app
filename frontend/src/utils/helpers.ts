@@ -1,23 +1,19 @@
-import { toast, TypeOptions, ToastPosition } from "react-toastify";
+import toast, { ToastPosition } from 'react-hot-toast';
 
 type Toast = (
   message: string,
-  type: TypeOptions,
+  type: 'success' | 'error',
   duration?: number,
   position?: ToastPosition,
 ) => void
 
-const toastMessage: Toast = ( message, type, duration = 3000, position = "top-right") => {
-  return toast(message, {
+const toastMessage: Toast = ( message, type, duration = 3000, position = "bottom-center") => {
+  return type === "success" ? toast.success(message, {
     position,
-    type: type,
-    autoClose: duration,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
+    duration: duration,
+  }) : toast.error(message, {
+    position,
+    duration: duration,
   });
 }
 

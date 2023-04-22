@@ -5,12 +5,12 @@ export interface QuestionOption {
   value: string;
 }
 export interface Question {
-  id: string;
+  id: number;
   text: string;
   options: QuestionOption[];
 }
 export interface Answer {
-  questionId: string;
+  questionId: number;
   selectedOption: string;
 }
 export interface PersonalityTestState {
@@ -26,7 +26,7 @@ export interface ActionType {
 
 export const NEXT_QUESTION = "NEXT_QUESTION"
 export const PREV_QUESTION = "PREV_QUESTION"
-export const SUBMIT_TEST = "SUBMIT_TEST"
+export const RESET_TEST = "RESET_TEST"
 export const SET_LOADING = "SET_LOADING"
 export const SET_ANSWER = "SET_ANSWER"
 export const FETCH_QUESTIONS = "FETCH_QUESTIONS"
